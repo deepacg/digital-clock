@@ -10,8 +10,8 @@
     <h1 class='title'>Digital clock</h1>
 
     <div class='div'>
-    <h1 id='currentDate'></h1>
-    <h1 id='currentTime'></h1>
+        <h1 class='datetime' id='currentDate'></h1>
+        <h1 class='datetime' id='currentTime'></h1>
     </div>
 
     <script>
@@ -25,7 +25,7 @@
         function showTime() {
             var dt = new Date()
             var ampm = dt.getHours() < 12 ? "AM" : "PM" 
-            var dateString = putZero(dt.getDate()) + "/" + putZero(dt.getMonth()) + "/" + putZero(dt.getFullYear() )
+            var dateString = putZero(dt.getDate()) + "/" + putZero(dt.getMonth()+1) + "/" + putZero(dt.getFullYear() )
             var timeString = putZero(dt.getHours()%12) + ":" + putZero(dt.getMinutes()) + ":" + putZero(dt.getSeconds()) + " "+ ampm
             dateElement.innerHTML = dateString
             timeElement.innerHTML = timeString
@@ -47,7 +47,12 @@
             margin-left: 800px;
             margin-top: 50px;
             width: 300px;
-            color: midnightblue
+            color: midnightblue;
+            
+        }
+        .datetime {
+            font-size: xx-large;
+            font-weight: bolder;
         }
     </style>
     
