@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date time sample</title>
+</head>
+<body>
+    <h1>Date and time</h1>
+
+    <h3 id='currentDate'></h3>
+    <h3 id='currentTime'></h3>
+
+    <script>
+        var dateElement = document.getElementById('currentDate')
+        var timeElement = document.getElementById('currentTime')
+
+        function putZero(nm) {
+            return nm < 10 ? "0" + nm : nm
+        }
+
+        function showTime() {
+            var dt = new Date()
+            var ampm = dt.getHours() < 12 ? "AM" : "PM" 
+            var dateString = putZero(dt.getDate()) + "/" + putZero(dt.getMonth()) + "/" + putZero(dt.getFullYear() )
+            var timeString = putZero(dt.getHours()%12) + ":" + putZero(dt.getMinutes()) + ":" + putZero(dt.getSeconds()) + " "+ ampm
+            dateElement.innerHTML = dateString
+            timeElement.innerHTML = timeString
+            setTimeout(() => {
+                showTime()
+            }, 1000);
+        }
+        showTime()
+    </script>
+    
+</body>
+</html>
